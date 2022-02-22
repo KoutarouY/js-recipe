@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const memo = "koutarou"
+      localStorage.memo = memo
+      //   const anotherMemo = localStorage.memo
+
+      //   console.log("memo:", memo)
+      //   console.log("memo in localstorage:", anotherMemo)
+      const memos = ["りんご", "ゴリラ", "ラッパ", memo]
+      localStorage.memos = memos
+
+      //   const anotherMemo = localStorage.memos
+      console.log("memos:", memos)
+      //   console.log("memo in localstorage", anotherMemo)
+      localStorage.jsonMemos = JSON.stringify(memos)
+      console.log("memo in localstorage", memos)
+      console.log(JSON.parse(localStorage.jsonMemos))
+    </script>
+  </body>
+</html>

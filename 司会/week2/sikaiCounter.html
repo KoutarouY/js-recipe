@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>状態</h1>
+    <div id="display">0</div>
+    <button id="count-up">+1</button>
+    <button id="count-down">-1</button>
+    <button id="dengen-button">電源OFF</button>
+    <div id="rireki">ここに■が出る</div>
+    <script>
+      const display = document.getElementById("display")
+      const countUp = document.getElementById("count-up")
+      const countDown = document.getElementById("count-down")
+      const dengenButton = document.getElementById("dengen-button")
+      const rireki = document.getElementById("rireki")
+      let count = 0
+      let dengen = false
+      countUp.onclick = function () {
+        if (dengen === true) {
+          count++
+          console.log(count)
+          display.textContent = count
+          const div1 = document.createElement("div")
+          div1.textContent = "■".repeat(count)
+          console.log(div1)
+          rireki.append(div1)
+        }
+      }
+      countDown.onclick = function () {
+        if (dengen) {
+          count--
+          console.log(count)
+          display.textContent = count
+          const div1 = document.createElement("div")
+          div1.textContent = "■".repeat(count)
+          console.log(div1)
+          rireki.append(div1)
+        }
+      }
+      dengenButton.onclick = function () {
+        dengen = !dengen
+        console.log(dengen)
+        dengenButton.textContent = dengen ? "電源OFF" : "電源ON"
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue カウンター</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Vueカウンター</h1>
+      <div>🔥{{ keisan }}🔥</div>
+      <button v-on:click="button">+1</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            count: 0,
+          }
+        },
+        computed: {
+          keisan: function () {
+            if (this.count % 3 === 0 && this.count > 0) {
+              return `${this.count}!!!`
+            } else {
+              return this.count
+            }
+          },
+        },
+        methods: {
+          button: function () {
+            this.count += 1
+          },
+        },
+        created: function () {
+          this.count = 100
+        },
+      }).mount("#app")
+    </script>
+  </body>
+</html>

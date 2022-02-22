@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="count-up">+1</button>
+    <button id="count-down">-1</button>
+    <button id="dengen-button">電源OFF</button>
+    <div id="display-count">0</div>
+    <div id="rireki"></div>
+
+    <script>
+      const displayCount = document.getElementById("display-count")
+      const countUp = document.getElementById("count-up")
+      const countDown = document.getElementById("count-down")
+      const dengenButton = document.getElementById("dengen-button")
+      const rireki = document.getElementById("rireki")
+      let count = 0
+      let dengen = false
+
+      const rirekiFun = function () {
+        const div1 = document.createElement("div")
+        div1.textContent = "■".repeat(count)
+        rireki.append(div1)
+      }
+
+      countUp.onclick = function () {
+        if (dengen) {
+          count++
+          displayCount.textContent = count
+          rirekiFun()
+        }
+      }
+      countDown.onclick = function () {
+        if (dengen) {
+          count--
+          displayCount.textContent = count
+          rirekiFun()
+        }
+      }
+      dengenButton.onclick = function () {
+        dengen = !dengen
+        dengenButton.textContent = dengen ? "電源OFF" : "電源On"
+      }
+    </script>
+  </body>
+</html>

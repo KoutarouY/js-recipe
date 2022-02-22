@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vueの復習</title>
+  </head>
+  <body>
+    <h1>Vueの復習</h1>
+
+    <div id="app">
+      <div>
+        <div>1 + 1 ={{ 1 + 1 }}</div>
+        <div>
+          {{count}}
+          <button v-on:click="countUp">+1</button>
+        </div>
+      </div>
+      <h1>発展的な機能</h1>
+      <h2>computed</h2>
+      <div>{{count1}} + {{count2}} = {{ count1 + count2 }}</div>
+      <div>{{count1}} + {{count2}} = {{ total }}</div>
+      <h2>created</h2>
+      message : {{message}}
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            count: 0,
+            count1: 0,
+            count2: 10,
+            message: "",
+          }
+        },
+        methods: {
+          countUp: function () {
+            this.count += 1
+            this.count1 += 1
+          },
+        },
+        computed: {
+          total: function () {
+            // count 1 と count 2 の合計を計算する
+            return this.count1 + this.count2
+          },
+        },
+        created: function () {
+          //  何かしらのAPIからmessageを取得してきてる想定
+          this.message = "APIから取得したメッセージ"
+        },
+      }).mount("#app")
+    </script>
+  </body>
+</html>

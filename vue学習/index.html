@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue自動販売機</title>
+  </head>
+  <body>
+    <h1>自動販売機</h1>
+
+    <!-- 1. 飲み物の名前と値段を表示する -->
+    <section id="app1">
+      <h3>飲み物の名前と値段を表示する</h3>
+
+      <div>
+        <div>{{ drinkName }}</div>
+        <button>{{ drinkPrice }}円</button>
+      </div>
+    </section>
+    <!-- 2. 飲み物を買えるようにする (v-onについて) -->
+    <section id="app2">
+      <h3>飲み物を買えるようにする</h3>
+
+      <div>
+        <div>{{ drinkName }}</div>
+        <button v-on:click="kau">{{ drinkPrice }}円</button>
+
+        <div>{{ kattakazu }}本買いました</div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            drinkName: "お茶",
+            drinkPrice: 120,
+          }
+        },
+      }).mount("#app1")
+      Vue.createApp({
+        data() {
+          return {
+            drinkName: "お茶", // 名前
+            drinkPrice: 120, // 値段
+            kattakazu: 0,
+          }
+        },
+        methods: {
+          kau: function () {
+            this.kattakazu++
+          },
+        },
+      }).mount("#app2")
+    </script>
+  </body>
+</html>

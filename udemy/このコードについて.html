@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <div v-on:mouseover="btn">osite</div>
+      <div>{{ count }}</div>
+    </div>
+
+    <!-- <div class="active">a</div> -->
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            message: "aaa",
+            count: "",
+          }
+        },
+        methods: {
+          btn() {
+            this.count = "aaa"
+          },
+        },
+      }).mount("#app")
+    </script>
+  </body>
+</html>
