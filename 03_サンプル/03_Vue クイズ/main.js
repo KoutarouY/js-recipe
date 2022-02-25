@@ -4,7 +4,7 @@ const Quiz = {
       feedback: "",
       quiz: {
         text: "この星の名前は何でしょう？",
-        image: "Ganymede.jpg",
+        image: "Two.jpeg",
         choices: [
           {
             text: "ゴリアテ",
